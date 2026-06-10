@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="T.J. Randall — Navy Veteran, Technologist, building toward the Blue Economy. Cape Cod, Massachusetts.">
+  <title>T.J. Randall</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:   #0a2463;
+      --ocean:  #1565c0;
+      --ink:    #1a1a2e;
+      --muted:  #57606a;
+      --rule:   #d0d7de;
+      --bg:     #ffffff;
+      --surf:   #f6f8fa;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+      color: var(--ink);
+      background: var(--bg);
+    }
+
+    a { color: var(--ocean); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .wrap {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ── HERO ── */
+    header {
+      padding: 72px 0 52px;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .name {
+      font-size: clamp(2rem, 5vw, 2.75rem);
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      color: var(--navy);
+      line-height: 1.15;
+    }
+
+    .tagline {
+      margin-top: 10px;
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: var(--muted);
+      letter-spacing: 0.02em;
+    }
+
+    .sub-tagline {
+      margin-top: 10px;
+      font-size: 0.9rem;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    .hero-links {
+      margin-top: 28px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .hero-links img { display: block; }
+
+    /* ── SECTIONS ── */
+    section {
+      padding: 44px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    h2 {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      margin-bottom: 22px;
+    }
+
+    /* ── CURRENTLY ── */
+    .curr-list {
+      list-style: none;
+    }
+
+    .curr-list li {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0 12px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--rule);
+      font-size: 0.95rem;
+    }
+
+    .curr-list li:last-child { border-bottom: none; }
+
+    .curr-list .dash {
+      color: var(--ocean);
+      font-weight: 700;
+      line-height: 1.65;
+    }
+
+    .curr-list strong { color: var(--ink); }
+
+    .curr-list .note {
+      display: block;
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-top: 1px;
+    }
+
+    /* ── PROJECTS ── */
+    .project { margin-bottom: 36px; }
+    .project:last-child { margin-bottom: 0; }
+
+    .proj-header {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .proj-header h3 {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .proj-role {
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+    }
+
+    .project blockquote {
+      margin: 10px 0 12px;
+      padding-left: 14px;
+      border-left: 3px solid var(--ocean);
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.55;
+    }
+
+    .project ul {
+      padding-left: 18px;
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+
+    .project ul li { margin-bottom: 5px; }
+
+    /* ── SERVICE TABLE ── */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+    }
+
+    thead th {
+      text-align: left;
+      padding: 8px 10px;
+      background: var(--surf);
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      border-bottom: 2px solid var(--rule);
+    }
+
+    tbody td {
+      padding: 11px 10px;
+      border-bottom: 1px solid var(--rule);
+      vertical-align: top;
+      color: var(--ink);
+    }
+
+    tbody tr:last-child td { border-bottom: none; }
+
+    .service-note {
+      margin-top: 18px;
+      font-size: 0.83rem;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    /* ── CONTACT ── */
+    .contact-row {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      font-size: 0.95rem;
+    }
+
+    #email-link { font-weight: 500; }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 32px 0 40px;
+      text-align: center;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 520px) {
+      header { padding: 48px 0 36px; }
+      section { padding: 32px 0; }
+
+      thead th, tbody td { padding: 8px 6px; }
+      table { font-size: 0.82rem; }
+
+      .proj-header { flex-direction: column; gap: 2px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <!-- HERO -->
+    <header>
+      <h1 class="name">T.J. Randall</h1>
+      <p class="tagline">Navy Veteran &bull; Technologist</p>
+      <p class="sub-tagline">From the teak decks of USS Iowa to GCP Cloud Run — bridging maritime operations and technology.</p>
+      <div class="hero-links">
+        <a href="https://linkedin.com/in/tjrandall" target="_blank" rel="noopener noreferrer">
+          <img src="https://img.shields.io/badge/LinkedIn-tjrandall-0077B5?style=flat&logo=linkedin&logoColor=white"
+               alt="LinkedIn: tjrandall" height="22">
+        </a>
+      </div>
+    </header>
+
+    <!-- CURRENTLY -->
+    <section id="currently">
+      <h2>Currently</h2>
+      <ul class="curr-list">
+        <li>
+          <span class="dash">—</span>
+          <div>
+            <strong>eCornell</strong> &mdash; Python for Data Science Certificate
+            <span class="note">Starting June 2026</span>
+          </div>
+        </li>
+        <li>
+          <span class="dash">—</span>
+          <div>
+            <strong>Cape Cod Community College</strong> &mdash; Marine Science
+            <span class="note">ENV-118, ENV-125</span>
+          </div>
+        </li>
+        <li>
+          <span class="dash">—</span>
+          <div>
+            <strong>Northeastern University</strong> &mdash; GIS Graduate Certificate
+            <span class="note">Fall 2026</span>
+          </div>
+        </li>
+        <li>
+          <span class="dash">—</span>
+          <div>
+            <strong>USCG Auxiliary</strong> &mdash; Active member, Cape Cod Canal Station
+            <span class="note">SAR &bull; Communications &bull; Air Operations</span>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <h2>Featured Projects</h2>
+
+      <div class="project">
+        <div class="proj-header">
+          <h3><a href="https://github.com/DivinumOfficium/divinum-officium" target="_blank" rel="noopener noreferrer">Divinum Officium</a></h3>
+          <span class="proj-role">Infrastructure Maintainer</span>
+        </div>
+        <blockquote>
+          The world's most widely used traditional Latin Catholic liturgical web application, serving a global user base 24/7/365.
+        </blockquote>
+        <ul>
+          <li>Perl CGI &middot; Plack/Starman &middot; Docker &middot; GCP Cloud Run &middot; Cloudflare CDN/WAF</li>
+          <li>Millions of requests/month &middot; sole infrastructure owner: architecture, security, incident response</li>
+          <li>Custom Cloudflare WAF ruleset blocking 99.6%+ of malicious bot and AI-crawler traffic</li>
+          <li>Reduced hosting cost ~73% ($170/mo &rarr; $43/mo) through bot mitigation and Cloud Run tuning</li>
+        </ul>
+      </div>
+
+      <div class="project">
+        <div class="proj-header">
+          <h3><a href="https://github.com/tjrandall/one-a-day" target="_blank" rel="noopener noreferrer">One-a-Day</a></h3>
+          <span class="proj-role">Creator</span>
+        </div>
+        <blockquote>
+          An AI-powered life management system built on epistemic auditing &mdash; because to-do apps don&rsquo;t think. Currently in active development.
+        </blockquote>
+        <ul>
+          <li>Vanilla JS &middot; GitHub Pages</li>
+          <li>Live: <a href="https://tjrandall.github.io/one-a-day" target="_blank" rel="noopener noreferrer">tjrandall.github.io/one-a-day</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- MILITARY SERVICE -->
+    <section id="service">
+      <h2>Military Service</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Branch</th>
+            <th>Dates</th>
+            <th>Assignment</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>US Navy &mdash; Active Duty</td>
+            <td>1989&ndash;1992</td>
+            <td>USS Iowa (BB-61) &middot; USS Biddle (CG-34) &middot; Gulf War</td>
+          </tr>
+          <tr>
+            <td>US Navy Reserve</td>
+            <td>1992&ndash;1998</td>
+            <td>Inshore Boat Unit 21</td>
+          </tr>
+          <tr>
+            <td>USCG Reserve</td>
+            <td>1998&ndash;2006</td>
+            <td>Buoy Tender Operations</td>
+          </tr>
+          <tr>
+            <td>USCG Auxiliary</td>
+            <td>2024&ndash;Present</td>
+            <td>Cape Cod Canal Station &mdash; SAR, Comms, Air Ops</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="service-note">
+        Graduated U.S. Navy Search and Rescue School, March 1991 &mdash; 3rd in class.
+        Kuwait Liberation Medal &bull; National Defense Service Medal.
+      </p>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <h2>Contact</h2>
+      <div class="contact-row">
+        <a id="email-link" href="#" aria-label="Email T.J. Randall"></a>
+        <a href="https://linkedin.com/in/tjrandall" target="_blank" rel="noopener noreferrer">
+          <img src="https://img.shields.io/badge/LinkedIn-tjrandall-0077B5?style=flat&logo=linkedin&logoColor=white"
+               alt="LinkedIn: tjrandall" height="22">
+        </a>
+      </div>
+    </section>
+
+  </div><!-- /wrap -->
+
+  <footer>
+    <div class="wrap">
+      Cape Cod, Massachusetts &mdash; Building toward the Blue Economy
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      // ROT13 decode — keeps tj@tjrandall.com out of plain-text source
+      function rot13(s) {
+        return s.replace(/[a-zA-Z]/g, function (c) {
+          var b = c <= 'Z' ? 65 : 97;
+          return String.fromCharCode(((c.charCodeAt(0) - b + 13) % 26) + b);
+        });
+      }
+      var addr = rot13('gw@gwenaqnyy.pbz');
+      var el = document.getElementById('email-link');
+      el.href = 'mailto:' + addr;
+      el.textContent = addr;
+    })();
+  </script>
+</body>
+</html>
